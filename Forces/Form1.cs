@@ -47,13 +47,24 @@ namespace Forces
             // Parse means read this text as a number so it turns text into a number, this code reads whats in the text box and  
             try
             {
-                double Force = double.Parse(textBox1.Text);
+                Force = double.Parse(textBox1.Text);
+                Force = 0.0;
             }
             catch
             {
                 MessageBox.Show("Type a number in the Force box, you doofus!");
+                Force = 0.0;
             }
-            Angle = double.Parse(textBox2.Text);
+
+            try
+            {
+                Angle = double.Parse(textBox2.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Type a number in the Angle box, you doofus!");
+                Angle = 0.0;
+            }
 
 
             // Calculates Fx and Fy
@@ -61,8 +72,8 @@ namespace Forces
             double Fy = Force * sin(Angle);
 
             //put values for Fx and Fy in lables
-            lable1.Text = "Fx = " + Fx + " N";
-            lable2.Text = "Fy = " + Fy + " N";
+            label1.Text = "Fx = " + Fx + " N";
+            label2.Text = "Fy = " + Fy + " N";
         }
     }
 }
